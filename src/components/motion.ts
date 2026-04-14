@@ -21,7 +21,8 @@ export function useSectionMotion() {
     ? { visible: { transition: { staggerChildren: 0 } } }
     : { visible: { transition: { staggerChildren: 0.07 } } }
 
-  const viewport = { once: true, margin: '-60px' }
+  // Critical: low threshold prevents invisible sections on fast scroll.
+  const viewport = { once: true, amount: 0.05 }
 
   return { fadeUp, stagger, viewport, reduce }
 }
