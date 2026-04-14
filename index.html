@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EduConnect — School Communication Platform | FBT</title>
+    <meta
+      name="description"
+      content="EduConnect by Future Beyond Technology. The complete school communication platform for ₹2,000/month. Homework, attendance, notices, parent portal — all in one."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              serif: ['DM Serif Display', 'serif'],
+              sans: ['DM Sans', 'sans-serif'],
+            },
+            colors: {
+              accent: '#1A6B4A',
+              'accent-light': '#E8F5EF',
+              'accent-muted': '#4D9B72',
+              dark: '#0F1117',
+              'warm-white': '#FAFAF8',
+            },
+          },
+        },
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
