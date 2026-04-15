@@ -18,8 +18,8 @@ export const PROJECT = {
   },
   contact: {
     email: 'hello@futurebeyondtech.in',
-    whatsapp: '+91 XXXXX XXXXX',
-    whatsappLink: 'https://wa.me/91XXXXXXXXXX',
+    whatsapp: '+91 96004 33056',
+    whatsappLink: 'https://wa.me/919600433056',
   },
 } as const
 

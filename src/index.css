@@ -1,22 +1,82 @@
+/* ─────────────────────────────────────────────────────────────
+   THEME CUSTOM PROPERTIES
+   Dark is default (:root). Light overrides [data-theme="light"].
+   All structural bg/text/border uses --th-* variables so that
+   toggling data-theme on <html> flips the whole page instantly.
+──────────────────────────────────────────────────────────────── */
+
 :root {
-  --bg-primary: #fafaf8;
-  --bg-card: #ffffff;
-  --bg-dark: #0f1117;
-  --accent: #1a6b4a;
-  --accent-light: #e8f5ef;
-  --accent-muted: #4d9b72;
-  --text-primary: #0f1117;
-  --text-secondary: #6b7280;
-  --text-on-dark: #f9fafb;
-  --border: #e5e7eb;
-  --amber: #d97706;
-  --amber-light: #fef3c7;
+  /* Backgrounds */
+  --th-bg-deep:  #060910;   /* hero, investment, accept — stays dramatic */
+  --th-bg-alt:   #0D1117;   /* numbers, journey, care alternating */
+  --th-bg-main:  #080B14;   /* features, delivery, faq, team */
+  --th-bg-card:  #0F1520;   /* cards, panels */
+  --th-bg-inner: #0A0F1A;   /* rows, mockup inner elements */
+
+  /* Text */
+  --th-text:        #F0F4FF;
+  --th-text-muted:  rgba(240, 244, 255, 0.60);
+  --th-text-subtle: rgba(240, 244, 255, 0.40);
+
+  /* Borders */
+  --th-border:        rgba(255, 255, 255, 0.08);
+  --th-border-subtle: rgba(255, 255, 255, 0.06);
+
+  /* Navbar */
+  --th-nav-bg:     rgba(6, 9, 16, 0.88);
+  --th-nav-border: rgba(81, 43, 212, 0.22);
+
+  /* Legacy aliases kept so existing var(--accent) refs still resolve */
+  --bg-primary:   #080B14;
+  --bg-card:      #0F1520;
+  --bg-dark:      #060910;
+  --fbt:          #512BD4;
+  --fbt-light:    rgba(81, 43, 212, 0.12);
+  --fbt-muted:    #6B4FE0;
+  --cyan:         #00E5CC;
+  --cyan-light:   rgba(0, 229, 204, 0.12);
+  --amber:        #FFB020;
+  --amber-light:  rgba(255, 176, 32, 0.14);
+  --accent:       #512BD4;
+  --accent-light: rgba(81, 43, 212, 0.12);
+  --accent-muted: #6B4FE0;
+  --text-primary: #F0F4FF;
+  --text-secondary: rgba(240, 244, 255, 0.60);
+  --text-on-dark: #F0F4FF;
+  --border:       rgba(255, 255, 255, 0.08);
+  --border-accent: rgba(81, 43, 212, 0.30);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* ── Light theme overrides ────────────────────────────────── */
+[data-theme="light"] {
+  --th-bg-deep:  #150E35;   /* deep purple — hero stays impactful */
+  --th-bg-alt:   #F3F0FF;   /* soft lavender */
+  --th-bg-main:  #FFFFFF;   /* clean white */
+  --th-bg-card:  #FAF8FF;   /* white with hint of purple */
+  --th-bg-inner: #EDE9FF;   /* light lavender inner elements */
+
+  --th-text:        #1A0F3C;
+  --th-text-muted:  rgba(26, 15, 60, 0.60);
+  --th-text-subtle: rgba(26, 15, 60, 0.40);
+
+  --th-border:        rgba(81, 43, 212, 0.15);
+  --th-border-subtle: rgba(81, 43, 212, 0.10);
+
+  --th-nav-bg:     rgba(255, 255, 255, 0.92);
+  --th-nav-border: rgba(81, 43, 212, 0.18);
+
+  --bg-primary:   #FFFFFF;
+  --text-primary: #1A0F3C;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   BASE STYLES
+──────────────────────────────────────────────────────────────── */
 
 html,
 body {
@@ -26,48 +86,42 @@ body {
 body {
   margin: 0;
   font-family: 'DM Sans', sans-serif;
-  color: var(--text-primary);
-  background: var(--bg-primary);
+  color: var(--th-text);
+  background: var(--th-bg-main);
 }
 
 #root {
   min-height: 100%;
 }
 
-/* Premium dot grid used in hero dark background */
+/* Cyberpunk purple dot grid (hero section) */
 .dot-grid {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(81, 43, 212, 0.25) 1px, transparent 1px);
   background-size: 22px 22px;
   background-position: 0 0;
 }
 
 @keyframes float {
   0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-12px);
-  }
+  100% { transform: translateY(0px); }
+  50%  { transform: translateY(-12px); }
 }
 .mockup-float {
   animation: float 4s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .mockup-float {
-    animation: none;
-  }
+  .mockup-float { animation: none; }
 }
 
-/* Slider styling (dark ROI section) */
+/* Slider styling */
 .range {
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
   height: 6px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.12);
   outline: none;
 }
 .range::-webkit-slider-thumb {
@@ -76,7 +130,7 @@ body {
   width: 18px;
   height: 18px;
   border-radius: 999px;
-  background: var(--accent);
+  background: var(--fbt);
   border: 2px solid rgba(255, 255, 255, 0.85);
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
   cursor: pointer;
@@ -85,7 +139,7 @@ body {
   width: 18px;
   height: 18px;
   border-radius: 999px;
-  background: var(--accent);
+  background: var(--fbt);
   border: 2px solid rgba(255, 255, 255, 0.85);
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
   cursor: pointer;

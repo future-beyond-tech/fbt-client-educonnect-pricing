@@ -1,7 +1,14 @@
+import Navbar from './components/Navbar'
 import DeliveryPage from './components/delivery/DeliveryPage'
+import { useTheme } from './hooks/useTheme'
 
-function App() {
-  return <DeliveryPage />
+export default function App() {
+  const { theme, toggleTheme } = useTheme()
+
+  return (
+    <>
+      <Navbar theme={theme} onToggleTheme={toggleTheme} />
+      <DeliveryPage />
+    </>
+  )
 }
-
-export default App
